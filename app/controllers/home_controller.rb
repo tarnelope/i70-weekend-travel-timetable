@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
+  layout 'home'
   def index
     @segment = SegmentSnapshot.last
-    @average_travel_times = average_travel_times
+
+    @home_props = {
+      segment: @segment,
+      average_travel_times: average_travel_times
+    }
   end
 
   private

@@ -1,10 +1,2 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-<div class="field">
-  <p><%= @segment.segment_name %></p>
-  <% @average_travel_times.each do |time| %>
-    <% debugger %>
-    <p><%= time %></p>
-  <% end %>
-</div>
+<h1>I-70 Travel Time Table</h1>
+<%= react_component("Home", props: @home_props, prerender: false) %>
