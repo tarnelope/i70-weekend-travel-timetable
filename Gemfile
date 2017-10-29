@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Use react for front-end
-gem 'react-rails'
+gem "react_on_rails", "~> 6"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
