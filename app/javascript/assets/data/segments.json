@@ -1,0 +1,276 @@
+{
+  "segments": [
+    {
+      "label": "070E177 - East Vail to Vail Pass",
+      "value": 31
+    },
+    {
+      "label": "070E190 - Vail Pass to Copper",
+      "value": 32
+    },
+    {
+      "label": "070E196 - Copper to Frisco (Main St)",
+      "value": 33
+    },
+    {
+      "label": "070E201 - Frisco (Main St) to Silverthorne",
+      "value": 34
+    },
+    {
+      "label": "070E206 - Silverthorne to MM 211",
+      "value": 272
+    },
+    {
+      "label": "070E211 - MM 211 to Eisenhower Tunnel West Entrance",
+      "value": 273
+    },
+    {
+      "label": "070E214 - Eisenhower Tunnel West Entrance to Loveland",
+      "value": 36
+    },
+    {
+      "label": "070E217 - Loveland to Bakerville",
+      "value": 37
+    },
+    {
+      "label": "070E222 - Bakerville to Georgetown",
+      "value": 38
+    },
+    {
+      "label": "070E228 - Georgetown to US 40 Empire",
+      "value": 39
+    },
+    {
+      "label": "070E233 - US 40 Empire to CO 103 Idaho Springs / Mt Evans",
+      "value": 40
+    },
+    {
+      "label": "070E232 - US 40 Empire to CO 103 Idaho Springs / Mt Evans (MEXL)",
+      "value": 497
+    },
+    {
+      "label": "070E240 - CO 103 Idaho Springs / Mt Evans to US 6",
+      "value": 41
+    },
+    {
+      "label": "070E240 - CO 103 Idaho Springs / Mt Evans to US 6 (MEXL)",
+      "value": 498
+    },
+    {
+      "label": "070E245 - US 6 to Beaver Brook",
+      "value": 276
+    },
+    {
+      "label": "070E248 - Beaver Brook to Evergreen Pkwy",
+      "value": 277
+    },
+    {
+      "label": "070E252 - Evergreen Pkwy to Lookout Mountain",
+      "value": 268
+    },
+    {
+      "label": "070E256 - Lookout Mountain to Morrison / Heritage",
+      "value": 269
+    },
+    {
+      "label": "070E259 - Morrison / Heritage to C-470",
+      "value": 44
+    },
+    {
+      "label": "070E260 - C-470 to US 6",
+      "value": 45
+    },
+    {
+      "label": "070E261 - US 6 to 32nd Ave",
+      "value": 46
+    },
+    {
+      "label": "070E265 - 32nd Ave to CO 58",
+      "value": 47
+    },
+    {
+      "label": "070E266 - CO 58 to Kipling St",
+      "value": 48
+    },
+    {
+      "label": "070E268 - Kipling St to I-76",
+      "value": 49
+    },
+    {
+      "label": "070E270 - I-76 to Sheridan Blvd",
+      "value": 50
+    },
+    {
+      "label": "070E271 - Sheridan Blvd to Pecos St",
+      "value": 51
+    },
+    {
+      "label": "070E273 Pecos St to I-25",
+      "value": 52
+    },
+    {
+      "label": "070E275 - I-25 to Brighton Blvd",
+      "value": 53
+    },
+    {
+      "label": "070E276 - Brighton Blvd to Colorado Blvd",
+      "value": 54
+    },
+    {
+      "label": "070E277 - Colorado Blvd to I-270",
+      "value": 55
+    },
+    {
+      "label": "070E280 - I-270 to Havana St",
+      "value": 56
+    },
+    {
+      "label": "070E281 - Havana St to Peoria St",
+      "value": 57
+    },
+    {
+      "label": "070E282 - Peoria St to I-225",
+      "value": 58
+    },
+    {
+      "label": "070E283 - I-225 to Pena Blvd",
+      "value": 59
+    },
+    {
+      "label": "070E284 - Pena Blvd to Tower Rd",
+      "value": 60
+    },
+    {
+      "label": "070W285 - Tower Rd to Pena Blvd",
+      "value": 1
+    },
+    {
+      "label": "070W283 - Pena Blvd to I-225",
+      "value": 2
+    },
+    {
+      "label": "070W282 - I-225 to Peoria St",
+      "value": 3
+    },
+    {
+      "label": "070W281 - Peoria St to Havana St",
+      "value": 4
+    },
+    {
+      "label": "070W280 - Havana St to I-270",
+      "value": 5
+    },
+    {
+      "label": "070W278 - I-270 to Colorado Blvd",
+      "value": 6
+    },
+    {
+      "label": "070W276 - Colorado Blvd to Brighton Blvd",
+      "value": 7
+    },
+    {
+      "label": "070W275 - Brighton Blvd to I-25",
+      "value": 8
+    },
+    {
+      "label": "070W273 - I-25 to Pecos St",
+      "value": 9
+    },
+    {
+      "label": "070W273 - Pecos St to Sheridan Blvd",
+      "value": 10
+    },
+    {
+      "label": "070W270 - Sheridan Blvd to I-76",
+      "value": 11
+    },
+    {
+      "label": "070W269 - I-76 to Kipling St",
+      "value": 12
+    },
+    {
+      "label": "070W267 - Kipling St to CO 58",
+      "value": 13
+    },
+    {
+      "label": "070W265 - CO 58 to 32nd Ave",
+      "value": 14
+    },
+    {
+      "label": "070W264 - 32nd Ave to US 6",
+      "value": 15
+    },
+    {
+      "label": "070W260 - US 6 to C-470",
+      "value": 16
+    },
+    {
+      "label": "070W259 - C-470 to Morrison / Heritage",
+      "value": 17
+    },
+    {
+      "label": "070W258 - Morrison / Heritage to Lookout Mountain",
+      "value": 266
+    },
+    {
+      "label": "070W256 - Lookout Mountain to Evergreen Pkwy",
+      "value": 267
+    },
+    {
+      "label": "070W251 - Evergreen Pkwy to Beaver Brook",
+      "value": 274
+    },
+    {
+      "label": "070W247 - Beaver Brook to US 6",
+      "value": 275
+    },
+    {
+      "label": "070W244 - US 6 to CO 103 Idaho Springs / Mt Evans",
+      "value": 20
+    },
+    {
+      "label": "070W239 - CO 103 Idaho Springs / Mt Evans to US 40 Empire",
+      "value": 21
+    },
+    {
+      "label": "070W232 - US 40 Empire to Georgetown",
+      "value": 22
+    },
+    {
+      "label": "070W227 - Georgetown to Bakerville",
+      "value": 23
+    },
+    {
+      "label": "070W221 - Bakerville to Loveland",
+      "value": 24
+    },
+    {
+      "label": "070W216 - Loveland to Eisenhower Tunnel West Entrance",
+      "value": 25
+    },
+    {
+      "label": "070W213 - Eisenhower Tunnel West Entrance to MM 211",
+      "value": 270
+    },
+    {
+      "label": "070W211 - MM 211 to Silverthorne",
+      "value": 271
+    },
+    {
+      "label": "070W205 - Silverthorne to Frisco (Main St)",
+      "value": 27
+    },
+    {
+      "label": "070W200 - Frisco (Main St) to Copper",
+      "value": 28
+    },
+    {
+      "label": "070W195 - Copper to Vail Pass",
+      "value": 29
+    },
+    {
+      "label": "070W189 - Vail Pass to East Vail",
+      "value": 30
+    }
+  ]
+}
