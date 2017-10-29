@@ -5,6 +5,7 @@ import _ from 'lodash';
 import segments from '../../../assets/data/segments.json';
 
 import Select from 'react-select';
+import { Button } from 'semantic-ui-react';
 
 export default class Home extends React.Component {
   static propTypes = {
@@ -36,41 +37,41 @@ export default class Home extends React.Component {
     this.setState({ endSegment: value });
   }
 
+  calculateTravelTimes() {
+    
+  }
+
   renderStartSelect() {
     return (
-      <div class="segment-select">
-        <div class="segment-select-label">
+      <div className="segment-select">
+        <div className="segment-select-label">
           Select Start Segment
         </div>
-        <Select
-          name="endpoint-select"
-          value={this.state.startSegment}
-          options={this.state.segments}
-          onChange={this.setStartSegment}
-        />
+        <Select name="endpoint-select"
+                value={this.state.startSegment}
+                options={this.state.segments}
+                onChange={this.setStartSegment} />
       </div>
     )
   }
 
   renderEndSelect() {
     return (
-      <div class="segment-select">
-        <div class="segment-select-label">
+      <div className="segment-select">
+        <div className="segment-select-label">
           Select End Segment
         </div>
-        <Select
-          name="endpoint-select"
-          value={this.state.endSegment}
-          options={this.state.segments}
-          onChange={this.setEndSegment}
-        />
+        <Select name="endpoint-select"
+                value={this.state.endSegment}
+                options={this.state.segments}
+                onChange={this.setEndSegment} />
       </div>
     )
   }
 
   renderEndpointSelect() {
     return (
-      <div class="endpoint-selects">
+      <div className="endpoint-selects">
         {this.renderStartSelect()}
         {this.renderEndSelect()}
       </div>
@@ -81,6 +82,9 @@ export default class Home extends React.Component {
     return (
       <div>
         { this.renderEndpointSelect() }
+        <Button onClick={this.calculateTravelTimes}>
+          Calculate Time
+        </Button>
       </div>
     );
   }
