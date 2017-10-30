@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# For rounding time and date
+gem 'rounding'
+
 # Use react for front-end
 gem "react_on_rails", "10.0.0"
 gem "webpacker", "~> 3.0"
