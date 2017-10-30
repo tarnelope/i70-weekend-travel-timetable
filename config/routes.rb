@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
   get 'home', to: 'home#index'
 
-  resources :segment_snapshots
+  scope module: 'api' do
+    namespace :v1 do
+      resources :segment_snapshots, only: [:index]
+    end
+  end
+  
+  # constraints subdomain: 'api' do
+  #   scope module: 'api' do
+  #     namespace :v1 do
+  #       resources :segment_snapshots, only: [:index]
+  #     end
+  #   end
+  # end
 end

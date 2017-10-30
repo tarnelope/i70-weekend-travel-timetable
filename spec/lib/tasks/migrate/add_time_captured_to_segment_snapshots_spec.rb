@@ -8,7 +8,7 @@ describe 'migrate:add_time_captured_to_segment_snapshots', type: :task do
   describe 'create:segments_by_time_snapshots' do
     before do
       20.times do |n|
-        create(:segment_snapshot, created_at: Time.now + (n * 5).minutes)
+        create(:segment_snapshot, created_at: Time.now + (n * 5).minutes, time_captured: nil, date_captured: nil)
       end
 
       task.execute

@@ -15,22 +15,6 @@ class TrafficSnapshotSegmentsCreator
 
   private
 
-  # def filename
-  #   prefix = "data/traffic"
-  #   datetime = DateTime.parse(generated_date)
-  #
-  #   month = datetime.strftime("%b")
-  #   day = datetime.strftime("%d")
-  #   time = datetime.strftime("%H:%M")
-  #   directory_name = "#{prefix}/#{month}/#{day}"
-  #   FileUtils.mkdir_p(directory_name) unless File.directory?(directory_name)
-  #   "#{directory_name}/#{time}.json"
-  # end
-  #
-  # def create_segment(segment_data)
-  #   formatted_segment_data(segment_data)
-  # end
-
   def segments_by_road_name(road_name)
     relevant_segments = segments.select { |segment| segment["RoadName"] == road_name }
     relevant_segments.map do |segment|
@@ -43,6 +27,9 @@ class TrafficSnapshotSegmentsCreator
     data = raw_data.select { |key| SegmentSnapshot.column_names.include?(key) }
     data["travel_time"] = raw_data["travel_time"]["Minutes"] if raw_data.keys.include?("travel_time")
     data["expected_travel_time"] = raw_data["expected_travel_time"]["Minutes"] if raw_data.keys.include?("expected_travel_time")
+    time = Time.now.in_time_zone("America/Denver").round_to(5.minutes)
+    data["time_captured"] = time.strftime('%H:%M')
+    data["date_captured"] = time.to_date
 
     data
   end

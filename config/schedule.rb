@@ -5,27 +5,31 @@
 
 # Example:
 #
-# set :output, "/path/to/my/cron_log.log"
+# set :output, '/path/to/my/cron_log.log'
 #
 # every 2.hours do
-#   command "/usr/bin/some_great_command"
-#   runner "MyModel.some_method"
-#   rake "some:great:rake:task"
+#   command '/usr/bin/some_great_command'
+#   runner 'MyModel.some_method'
+#   rake 'some:great:rake:task'
 # end
 #
 # every 4.days do
-#   runner "AnotherModel.prune_old_records"
+#   runner 'AnotherModel.prune_old_records'
 # end
 
 # Learn more: http://github.com/javan/whenever
 
-set :environment, "development"
+set :environment, 'development'
 
-every '*/5 5-10 * * 0,6' do
-  rake "collect:traffic_snapshot"
+# every '*/5 5-10 * * 0,6' do
+#   rake 'collect:traffic_snapshot'
+# end
+
+every '*/5 5-10 * * *' do
+  rake 'collect:traffic_snapshot'
 end
 #
 # every '*/5 5-10 * * 0,6' do
-#   rake "test_task:scheduler"
-#   command "echo 'you can use raw cron syntax too'"
+#   rake 'test_task:scheduler'
+#   command 'echo 'you can use raw cron syntax too''
 # end

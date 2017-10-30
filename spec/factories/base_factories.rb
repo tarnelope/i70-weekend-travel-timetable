@@ -3,8 +3,6 @@ FactoryGirl.define do
     travel_time { rand(1.0..12.9) }
     expected_travel_time { rand(1.0..12.9) }
     segment_id { rand(1..10) }
-    time_captured nil
-    date_captured nil
   end
 
   factory :segment_travel_time do

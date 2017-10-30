@@ -38,7 +38,19 @@ export default class Home extends React.Component {
   }
 
   calculateTravelTimes() {
-    
+    $.ajax({ url: '/segment_snapshots',
+             type: 'POST',
+             data: {
+               item: {
+                 name: name,
+                 description: description
+               }
+             },
+             success: (response) => {
+               console.log('it worked!', response);
+             }
+          });
+
   }
 
   renderStartSelect() {
