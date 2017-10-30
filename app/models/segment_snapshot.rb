@@ -1,3 +1,2 @@
 class SegmentSnapshot < ApplicationRecord
-
 end
