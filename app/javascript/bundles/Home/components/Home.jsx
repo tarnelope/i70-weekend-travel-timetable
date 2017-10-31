@@ -5,7 +5,7 @@ import _ from 'lodash';
 import segments from '../../../assets/data/segments.json';
 
 import Select from 'react-select';
-import { Button } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 
 export default class Home extends React.Component {
   static propTypes = {
@@ -19,38 +19,45 @@ export default class Home extends React.Component {
 
     this.state = {
       segments: this.sortedSegments(),
-      average_travel_times: this.props.average_travel_times,
-      startSegment: null,
-      endSegment: null
+      averageTravelTimes: this.props.averageTravelTimes,
+      startSegmentId: null,
+      endSegmentId: null,
+      averageTravelTimesTable: null
      };
   }
 
   sortedSegments() {
-    return _.sortBy(segments.segments, 'segment_id');
+    return _.sortBy(segments.segments, 'value');
   }
 
-  setStartSegment = (value) => {
-    this.setState({ startSegment: value });
+  setStartSegment = (segment) => {
+    this.setState({ startSegmentId: segment.value });
   }
 
-  setEndSegment = (value) => {
-    this.setState({ endSegment: value });
+  setEndSegment = (segment) => {
+    this.setState({ endSegmentId: segment.value });
   }
 
-  calculateTravelTimes() {
-    $.ajax({ url: '/segment_snapshots',
-             type: 'POST',
+  setAverageTravelTimesTable = (averageTravelTimesTable) => {
+    this.setState({ averageTravelTimesTable });
+  }
+
+  calculateTravelTimes = () => {
+    const url = `v1/segment_snapshots?start_segment_id=${this.state.startSegmentId}&end_segment_id=${this.state.endSegmentId}`
+    $.ajax({ url: url,
+             type: 'GET',
              data: {
-               item: {
-                 name: name,
-                 description: description
-               }
+               start_segment_id: this.state.startSegmentId,
+               end_segment_id: this.state.endSegmentId,
              },
              success: (response) => {
-               console.log('it worked!', response);
+               this.setAverageTravelTimesTable(response.average_travel_times_table);
              }
           });
+  }
 
+  getTableArray() {
+    return _.map(_.toPairs(this.state.averageTravelTimesTable), d => _.fromPairs([d]));
   }
 
   renderStartSelect() {
@@ -60,7 +67,7 @@ export default class Home extends React.Component {
           Select Start Segment
         </div>
         <Select name="endpoint-select"
-                value={this.state.startSegment}
+                value={this.state.startSegmentId}
                 options={this.state.segments}
                 onChange={this.setStartSegment} />
       </div>
@@ -74,14 +81,14 @@ export default class Home extends React.Component {
           Select End Segment
         </div>
         <Select name="endpoint-select"
-                value={this.state.endSegment}
+                value={this.state.endSegmentId}
                 options={this.state.segments}
                 onChange={this.setEndSegment} />
       </div>
     )
   }
 
-  renderEndpointSelect() {
+  renderEndpointsSelect() {
     return (
       <div className="endpoint-selects">
         {this.renderStartSelect()}
@@ -90,13 +97,44 @@ export default class Home extends React.Component {
     )
   }
 
+  renderTravelTimeTable() {
+    if (!this.state.averageTravelTimesTable) {
+      return null;
+    } else {
+      const headerRow = [
+        'Departure',
+        'Arrival',
+        'Travel Time'
+      ];
+
+      const renderBodyRow = ({ departure, arrival, travel_time }, i) => ({
+        key: `row-${i}`,
+        cells: [
+          departure,
+          arrival,
+          travel_time
+        ],
+      })
+
+      return (
+        <Table
+          celled
+          headerRow={headerRow}
+          renderBodyRow={renderBodyRow}
+          tableData={this.state.averageTravelTimesTable}
+        />
+      )
+    }
+  }
+
   render() {
     return (
       <div>
-        { this.renderEndpointSelect() }
+        { this.renderEndpointsSelect() }
         <Button onClick={this.calculateTravelTimes}>
           Calculate Time
         </Button>
+        { this.renderTravelTimeTable() }
       </div>
     );
   }

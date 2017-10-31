@@ -10,10 +10,11 @@ class AverageTravelTimesTable
   end
 
   def average_travel_time_by_depart_time_table
-    average_travel_time_table_by_depart_time = {}
+    average_travel_time_table_by_depart_time = []
 
     TIME_INTERVALS.each do |depart_time|
-      average_travel_time_table_by_depart_time[depart_time] = average_total_travel_time(depart_time)
+
+      average_travel_time_table_by_depart_time.append(time_record(depart_time))
     end
 
     average_travel_time_table_by_depart_time
@@ -42,6 +43,15 @@ class AverageTravelTimesTable
 
   def average_segment_travel_time(segment_travel_times)
     return 0 if segment_travel_times.empty?
-    segment_travel_times.sum / segment_travel_times.length
+    (segment_travel_times.sum / segment_travel_times.length).round
+  end
+
+  def time_record(depart_time)
+    travel_time = average_total_travel_time(depart_time)
+    arrival = (depart_time.to_time + travel_time.minutes).strftime('%H:%M')
+
+    { departure: depart_time,
+      travel_time: travel_time,
+      arrival: arrival }
   end
 end
