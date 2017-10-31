@@ -8,7 +8,7 @@ module Api::V1
 
     def response_json
       {
-        average_travel_times_table: average_travel_times_table.segment_avg_travel_time_table
+        average_travel_times_table: average_travel_times_table.average_travel_time_by_depart_time_table
       }
     end
 
