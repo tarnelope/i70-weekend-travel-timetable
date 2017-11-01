@@ -5,7 +5,7 @@ import _ from 'lodash';
 import segments from '../../../assets/data/segments.json';
 
 import Select from 'react-select';
-import { Button, Table } from 'semantic-ui-react';
+import { Button, Table, Form, Radio } from 'semantic-ui-react';
 
 export default class Home extends React.Component {
   static propTypes = {
@@ -18,16 +18,22 @@ export default class Home extends React.Component {
     super(props);
 
     this.state = {
-      segments: this.sortedSegments(),
       averageTravelTimes: this.props.averageTravelTimes,
       startSegmentId: null,
       endSegmentId: null,
-      averageTravelTimesTable: null
+      averageTravelTimesTable: null,
+      westbound: true
      };
   }
 
   sortedSegments() {
-    return _.sortBy(segments.segments, 'value');
+    const displayedSegments = _.sortBy(segments.segments, 'value');
+
+    if (!this.state || this.state.westbound ) {
+      return _.filter(displayedSegments, (segment) => { return segment.westbound });
+    } else {
+      return _.filter(displayedSegments, (segment) => { return !segment.westbound });
+    }
   }
 
   setStartSegment = (segment) => {
@@ -40,6 +46,10 @@ export default class Home extends React.Component {
 
   setAverageTravelTimesTable = (averageTravelTimesTable) => {
     this.setState({ averageTravelTimesTable });
+  }
+
+  setTravelDirection = (e, { value }) => {
+    this.setState({ westbound: value });
   }
 
   calculateTravelTimes = () => {
@@ -68,7 +78,7 @@ export default class Home extends React.Component {
         </div>
         <Select name="endpoint-select"
                 value={this.state.startSegmentId}
-                options={this.state.segments}
+                options={this.sortedSegments()}
                 onChange={this.setStartSegment} />
       </div>
     )
@@ -82,7 +92,7 @@ export default class Home extends React.Component {
         </div>
         <Select name="endpoint-select"
                 value={this.state.endSegmentId}
-                options={this.state.segments}
+                options={this.sortedSegments()}
                 onChange={this.setEndSegment} />
       </div>
     )
@@ -90,10 +100,38 @@ export default class Home extends React.Component {
 
   renderEndpointsSelect() {
     return (
-      <div className="endpoint-selects">
+      <div className="endpoints-select">
         {this.renderStartSelect()}
         {this.renderEndSelect()}
       </div>
+    )
+  }
+
+  renderTravelDirectionRadio() {
+    return (
+      <Form className="travel-direction-radio">
+        <Form.Field>
+          Selected value:
+        </Form.Field>
+        <Form.Field>
+          <Radio
+            label='Westbound'
+            name='radioGroup'
+            value={true}
+            checked={this.state.westbound}
+            onChange={this.setTravelDirection}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Radio
+            label='Eastbound'
+            name='radioGroup'
+            value={false}
+            checked={!this.state.westbound}
+            onChange={this.setTravelDirection}
+          />
+        </Form.Field>
+      </Form>
     )
   }
 
@@ -104,11 +142,11 @@ export default class Home extends React.Component {
       const headerRow = [
         'Departure',
         'Arrival',
-        'Travel Time'
+        'Travel Time (minutes)'
       ];
 
       const renderBodyRow = ({ departure, arrival, travel_time }, i) => ({
-        key: `row-${i}`,
+        key: departure || `row-${i}`,
         cells: [
           departure,
           arrival,
@@ -130,8 +168,10 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
+        { this.renderTravelDirectionRadio() }
         { this.renderEndpointsSelect() }
-        <Button onClick={this.calculateTravelTimes}>
+        <Button className="calculate-button"
+                onClick={this.calculateTravelTimes}>
           Calculate Time
         </Button>
         { this.renderTravelTimeTable() }

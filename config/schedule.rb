@@ -25,11 +25,12 @@ set :environment, 'development'
 #   rake 'collect:traffic_snapshot'
 # end
 
+# This is just to get some data going
 every '*/5 5-10 * * *' do
   rake 'collect:traffic_snapshot'
 end
-#
-# every '*/5 5-10 * * 0,6' do
-#   rake 'test_task:scheduler'
-#   command 'echo 'you can use raw cron syntax too''
-# end
+
+every '*/5 5-10 * * 0,6' do
+  rake 'test_task:scheduler'
+  command "echo 'you can use raw cron syntax too'"
+end
