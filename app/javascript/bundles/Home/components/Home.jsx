@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'lodash';
+import $ from 'jquery';
 
 import segments from '../../../assets/data/segments.json';
 
