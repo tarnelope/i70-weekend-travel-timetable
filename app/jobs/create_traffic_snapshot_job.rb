@@ -1,4 +1,4 @@
-class CreateTrafficSnapshotJob < ApplicationJob
+class CreateTrafficSnapshotJob < ActiveJob::Base
   queue_as :default
 
   def perform(traffic_data)
@@ -7,6 +7,7 @@ class CreateTrafficSnapshotJob < ApplicationJob
 
   class Processor
     attr_reader :traffic_data
+
     def initialize(traffic_data)
       @traffic_data = traffic_data
     end
