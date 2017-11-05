@@ -23,9 +23,5 @@ describe 'create segments_by_time_snapshots rake task' do
     # it 'should create segment_by_time_snapshot' do
     #   expect { run_rake_task }.to change{ SegmentByTimeSnapshot.count }.by(5)
     # end
-    #
-    # it 'should create segment_travel_time' do
-    #   expect { run_rake_task }.to change{ SegmentTravelTime.count }.by(5)
-    # end
   end
 end

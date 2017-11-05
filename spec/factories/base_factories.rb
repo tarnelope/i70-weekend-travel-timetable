@@ -5,13 +5,6 @@ FactoryGirl.define do
     segment_id { rand(1..10) }
   end
 
-  factory :segment_travel_time do
-    association :segment_by_time_snapshot
-    travel_time { rand(1.0..12.9) }
-    segment_id { rand(1..10) }
-    time_captured { FactoryHelpers.random_time_captured }
-  end
-
   factory :segment_by_time_snapshot do
     association :daily_travel_info
     time_captured { FactoryHelpers.random_time_captured }
