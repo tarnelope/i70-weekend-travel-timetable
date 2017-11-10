@@ -19,7 +19,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-/public/packs/application*
-/public/packs/hello*
-/public/packs-test
+# /public/packs/application*
+# /public/packs/hello*
+# /public/packs-test
+/public/packs/*
 /node_modules
