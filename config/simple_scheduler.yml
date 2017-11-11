@@ -11,5 +11,11 @@ morning_traffic_collect_task:
 afternoon_traffic_collect_task:
   class: "SnapshotCollectionWorker"
   every: "5.minutes"
-  at: "1:00"
+  at: "13:00"
+  expires_after: "4.hours"
+
+test_task:
+  class: "TestWorker"
+  every: "5.minutes"
+  at: "13:00"
   expires_after: "4.hours"

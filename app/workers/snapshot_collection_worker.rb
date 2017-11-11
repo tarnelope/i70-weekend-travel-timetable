@@ -7,7 +7,7 @@ class SnapshotCollectionWorker
     uri = URI('http://www.cotrip.org/speed/getSegments.do')
     response = Net::HTTP.get(uri)
     traffic_data = JSON.parse(response)['SpeedDetails']
-    puts 'traffic_snapshot_dev perform'
+    puts 'SnapshotCollectionWorker perform'
     CreateTrafficSnapshotJob.perform_now(traffic_data)
   end
 end
