@@ -18,5 +18,7 @@ module I70TravelCalculator
       config.eager_load_paths << "#{Rails.root}/lib"
       config.eager_load_paths << "#{Rails.root}/app/services"
     end
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
