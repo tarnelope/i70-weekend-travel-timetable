@@ -46,6 +46,8 @@ gem 'rounding'
 
 # For scheduling the snapshot collection task
 gem 'rufus-scheduler'
+gem 'sidekiq'
+gem 'simple_scheduler'
 
 # Use react for front-end
 gem "react_on_rails", "10.0.0"
